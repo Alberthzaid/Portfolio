@@ -1,0 +1,34 @@
+.container_skills {
+  width: 50%; 
+  height: 100px; 
+  margin: 0 auto; 
+  overflow: hidden; 
+  position: relative; /* Necesario para manejar elementos hijos */
+  display: flex; /* Asegura que el contenido interno esté alineado */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+.container_skills_ul {
+  display: flex; /* Alinea los íconos horizontalmente */
+  flex-direction: row; /* Configura la dirección de los íconos */
+  list-style: none; /* Elimina el estilo de lista */
+  margin: 0;
+  padding: 0;
+  animation: scrollContinuous 15s linear infinite; /* Animación continua */
+  width: max-content; /* Permite que el contenido se ajuste dinámicamente */
+}
+
+@keyframes scrollContinuous {
+  0% {
+    transform: translateX(100%); /* Comienza en la posición inicial */
+  }
+  100% {
+    transform: translateX(-100%); /* Mueve todo el contenido a la izquierda */
+  }
+}
+
+.container_skills_ul li {
+  margin: 0 20px; /* Espaciado entre íconos */
+  flex-shrink: 0; /* Asegura que los íconos no se reduzcan */
+}

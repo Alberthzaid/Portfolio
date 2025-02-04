@@ -1,0 +1,19 @@
+.Header{
+    text-align: center;
+}
+
+.Description {
+    text-align: center;
+}
+
+
+.my_profile{
+   align-items: center;
+   font-size: 20px;
+   padding: 25px;
+   width: 800px;
+}
+
+.My_Presentation{
+    padding: 25px;
+}

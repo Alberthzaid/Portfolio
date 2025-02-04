@@ -1,0 +1,34 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbar_ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.navbar_li{
+    list-style: none;
+    margin: 20px;
+    
+}
+
+.Nav-item{
+    text-decoration: none;
+    color: black;
+}
+
+.Link_Contact{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 8px;
+    border-radius: 12px;
+    text-align: center;
+    
+}
