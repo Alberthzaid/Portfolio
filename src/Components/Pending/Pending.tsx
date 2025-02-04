@@ -1,5 +1,4 @@
-import './Pending.css'
-
+import './Pending.css';
 
 export const Pending = () => {
     return (
@@ -20,9 +19,9 @@ export const Pending = () => {
                                 className="curve_svg"
                                 version="1.1"
                                 xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xmlnsXlink="http://www.w3.org/1999/xlink" 
                                 viewBox="0 0 189.929 189.929"
-                                xml:space="preserve"
+                                xmlSpace="preserve" 
                             >
                                 <path
                                     d="M70.343,70.343c-30.554,30.553-44.806,72.7-39.102,115.635l-29.738,3.951C-5.442,137.659,11.917,86.34,49.129,49.13
@@ -73,7 +72,6 @@ export const Pending = () => {
                     <div className="text_4043">4</div>
                 </div>
             </div>
-
         </div>
-    )
-}
+    );
+};
