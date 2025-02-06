@@ -1,0 +1,75 @@
+.certifications_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.title_certifi{
+    padding: 10px;
+}
+
+
+.cardCertifi {
+    text-align: center;
+    width: 250px;
+    height: 254px;
+    margin: 0 auto;
+    background-color: #011522;
+    border-radius: 8px;
+    z-index: 1;
+   }
+   
+   .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+   }
+   
+   .circle {
+    padding: 0 4px;
+   }
+   
+   .box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+   }
+   
+   .red {
+    background-color: #ff605c;
+   }
+   
+   .yellow {
+    background-color: #ffbd44;
+   }
+   
+   .green {
+    background-color: #00ca4e;
+   }
+
+
+.view_certifi{
+    margin: 20px;
+    padding: 15px;
+    border-radius: 50px;
+    background-color:black;
+    color: aliceblue;
+    cursor: pointer;
+    border: none;
+    transition:0.5s all;
+    
+}
+
+.view_certifi:hover{
+    background-color: aliceblue;
+    color: #011522;
+    transition: 0.5s all;
+
+}
+

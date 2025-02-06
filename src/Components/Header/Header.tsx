@@ -16,11 +16,11 @@ export const Header = () => {
           2000,
           "I'm Zaid Pantoja",
           2000,
-          "I'm a FullStack junior",
+          "I'm a FullStack",
           2000,
           "I'm a Designer",
           2000,
-          "I'm Data science junior",
+          "I'm Data science",
           2000,
         ]}
         speed={50}

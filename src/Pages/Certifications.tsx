@@ -1,9 +1,9 @@
-import { Pending } from "../Components/Pending/Pending"
+import { CertificationsContent } from "../Components/CertificationsCards/Certifications"
 
 export const Certifications = () => {
   return (
     <div>
-      <Pending/>
+      <CertificationsContent/>
     </div>
   )
 }
