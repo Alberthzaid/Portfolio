@@ -32,7 +32,7 @@ export const CertificationsContent = () => {
     <div className="certifications_content">
         {
             certifications.map((certifi)=>(
-            <div className="cardCertifi">
+            <div className="cardCertifi" key={certifi.id}>
               <div className="tools">
                 <div className="circle">
                   <span className="red box"></span>
@@ -44,7 +44,7 @@ export const CertificationsContent = () => {
                   <span className="green box"></span>
                 </div>
               </div>
-              <div className="card__content">
+              <div className="card__content" >
                 <h3 className='title_certifi'>{certifi.title}</h3>
                 <p>{certifi.institute}</p>
                 <button className='view_certifi' onClick={()=>openCertification(certifi.file)}>View certification</button>

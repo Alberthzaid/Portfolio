@@ -194,3 +194,9 @@ body {
   background-blend-mode: overlay, normal, normal, normal, normal;
   height: 100vh;
 }
+
+@media screen and (max-width: 768px) {
+  body{
+    height: 100vh;
+  }
+}

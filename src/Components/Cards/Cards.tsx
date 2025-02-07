@@ -12,7 +12,7 @@ export const Cards = () => {
           projects creating complete applications, I have experience in agile
           methodologies such as Scrum and Kamban. Despite being able to create
           complete applications, my greatest passion is in Backend development
-          and databases. I love Machine learning , deep learning and all topics
+          and databases. I love Machine learning, deep learning and all topics
           about data science.
         </p>
       </div>

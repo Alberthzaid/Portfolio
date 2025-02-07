@@ -22,6 +22,10 @@ export const SocialMedia = () => {
                     <span className="tooltip">Whatsapp</span>
                     <box-icon type='logo' name='whatsapp'></box-icon>
                 </li>
+                <li className="icon Linkedin" onClick={()=>openLink("https://www.linkedin.com/in/alberth-zaid-a42aa8222")}>
+                    <span className="tooltip">Linkedin</span>
+                    <box-icon type='logo' name='linkedin' ></box-icon>
+                </li>
             </ul>
 
 

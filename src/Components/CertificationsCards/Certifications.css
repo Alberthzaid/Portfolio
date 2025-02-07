@@ -73,3 +73,15 @@
 
 }
 
+ /* Media queries para responsividad */
+ @media screen and (max-width: 768px) {
+    .cardCertifi{
+        margin-top: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .cardCertifi{
+        margin-top: 20px;
+    }
+  }

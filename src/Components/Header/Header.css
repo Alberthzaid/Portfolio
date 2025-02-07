@@ -1,19 +1,92 @@
-.Header{
-    text-align: center;
-}
-
-.Description {
-    text-align: center;
-}
-
-
-.my_profile{
-   align-items: center;
-   font-size: 20px;
-   padding: 25px;
-   width: 800px;
-}
-
-.My_Presentation{
+/* Contenedor principal */
+.Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
+  }
+  
+  /* Sección de presentación */
+  .My_Presentation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 25px;
-}
+  }
+  
+  /* Contenedor de redes sociales */
+  .social-media-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  /* Sección de descripción */
+  .Description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 0;
+  }
+  
+  /* Contenedor de habilidades */
+  .skills-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Contenedor del botón de descarga CV */
+  .download-cv-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  /* Contenedor de tarjetas */
+  .cards-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Media queries para responsividad */
+  @media screen and (max-width: 768px) {
+    .Header {
+      padding: 10px;
+    }
+  
+    .My_Presentation {
+      padding: 15px;
+    }
+  
+    .Description {
+      gap: 20px;
+    }
+  
+    .social-media-container {
+      gap: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .My_Presentation {
+      padding: 10px;
+    }
+  
+    .Description {
+      gap: 15px;
+    }
+  }
