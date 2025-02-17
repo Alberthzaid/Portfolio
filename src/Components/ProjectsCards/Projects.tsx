@@ -19,12 +19,6 @@ export const ProjectsCards = () => {
       url: "https://github.com/Alberthzaid/Game_test.git",
     },
     {
-      id: 4,
-      name: "Library System",
-      technologies: ["Python", "Flask"],
-      url: "https://github.com/Alberthzaid/Library-System-Backend.git",
-    },
-    {
       id: 5,
       name: "Simple fullstack app",
       technologies: ["Python", "Django", "Angular"],
