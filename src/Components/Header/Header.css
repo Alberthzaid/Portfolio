@@ -8,7 +8,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
+    height: 90vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
   }
   
   /* Sección de presentación */

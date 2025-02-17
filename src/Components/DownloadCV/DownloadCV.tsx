@@ -3,7 +3,7 @@ import './DownloadCV.css'
 
 export const DownloadCV = () => {
   const openPDF = ()=>{
-    window.open('/AlberthZaid_HV.pdf' , '_blank')
+    window.open('/AlberthPantoja_CV.pdf' , '_blank')
   }
 
     return (

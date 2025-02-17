@@ -20,6 +20,13 @@ export const CertificationsContent = () => {
             title:"3D Bionic Exoskeletons",
             institute:"P4H Bionics",
             file : "/P4HBionics.pdf"
+        },
+        {
+          id:4,
+          title:"Chatbots con IA",
+          institute:"Big data academy",
+          file:"/AlberthPantoja.pdf"
+
         }
     ]
 

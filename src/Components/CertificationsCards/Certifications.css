@@ -1,10 +1,12 @@
 .certifications_content{
     display: flex;
+    padding: 10px;
     flex-direction: row;
     justify-content: space-between;
     color: white;
     flex-wrap: wrap;
     margin: 20px;
+
 }
 
 .title_certifi{
