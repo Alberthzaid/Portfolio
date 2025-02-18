@@ -27,6 +27,13 @@ export const CertificationsContent = () => {
           institute:"Big data academy",
           file:"/AlberthPantoja.pdf"
 
+        },
+        {
+          id:5,
+          title:"UN Datathon 2024",
+          institute:"UN Datathon",
+          file:"/Dathaton.pdf"
+
         }
     ]
 
