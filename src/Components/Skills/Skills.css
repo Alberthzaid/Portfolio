@@ -1,34 +1,72 @@
 .container_skills {
-  width: 50%; 
-  height: 100px; 
-  margin: 0 auto; 
-  overflow: hidden; 
-  position: relative; /* Necesario para manejar elementos hijos */
-  display: flex; /* Asegura que el contenido interno esté alineado */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
+  width: 60%;
+  height: 120px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(15, 15, 15, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 10px 0;
+}
+
+.container_skills::before,
+.container_skills::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.container_skills::before {
+  left: 0;
+  background: linear-gradient(90deg,
+    rgba(15, 15, 15, 0.8) 0%,
+    transparent 100%);
+}
+
+.container_skills::after {
+  right: 0;
+  background: linear-gradient(270deg,
+    rgba(15, 15, 15, 0.8) 0%,
+    transparent 100%);
 }
 
 .container_skills_ul {
-  display: flex; /* Alinea los íconos horizontalmente */
-  flex-direction: row; /* Configura la dirección de los íconos */
-  list-style: none; /* Elimina el estilo de lista */
+  display: flex;
+  flex-direction: row;
+  list-style: none;
   margin: 0;
   padding: 0;
-  animation: scrollContinuous 15s linear infinite; /* Animación continua */
-  width: max-content; /* Permite que el contenido se ajuste dinámicamente */
+  animation: scrollContinuous 20s linear infinite;
+  width: max-content;
 }
 
 @keyframes scrollContinuous {
   0% {
-    transform: translateX(100%); /* Comienza en la posición inicial */
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-100%); /* Mueve todo el contenido a la izquierda */
+    transform: translateX(-100%);
   }
 }
 
 .container_skills_ul li {
-  margin: 0 20px; /* Espaciado entre íconos */
-  flex-shrink: 0; /* Asegura que los íconos no se reduzcan */
+  margin: 0 25px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  filter: grayscale(30%);
+}
+
+.container_skills_ul li:hover {
+  transform: scale(1.15);
+  filter: grayscale(0%) drop-shadow(0 0 12px rgba(102, 126, 234, 0.6));
 }

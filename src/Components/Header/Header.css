@@ -5,19 +5,46 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
-    height: 90vh; /* Asegura que ocupe al menos toda la altura de la pantalla */
+    padding: 60px 20px;
+    min-height: 90vh;
   }
-  
+
   /* Sección de presentación */
   .My_Presentation {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
+    padding: 40px 25px;
+    margin-bottom: 30px;
+  }
+
+  .My_Presentation span {
+    background: linear-gradient(135deg,
+      #ffffff 0%,
+      #a78bfa 25%,
+      #667eea 50%,
+      #764ba2 75%,
+      #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
   
   /* Contenedor de redes sociales */

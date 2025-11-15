@@ -4,89 +4,97 @@
     height: 120px;
     width: 100%;
     padding-top: 40px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     justify-content: center;
+    gap: 10px;
   }
-  
+
   .wrapper .icon {
     position: relative;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     margin: 10px;
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .wrapper .icon:hover {
+    transform: translateY(-5px) scale(1.05);
   }
   
   .wrapper .tooltip {
     position: absolute;
     top: 0;
-    font-size: 14px;
-    background: #fff;
-    color: #fff;
-    padding: 5px 8px;
-    border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    white-space: nowrap;
   }
-  
+
   .wrapper .tooltip::before {
     position: absolute;
     content: "";
     height: 8px;
     width: 8px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
     bottom: -3px;
     left: 50%;
     transform: translate(-50%) rotate(45deg);
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .wrapper .icon:hover .tooltip {
-    top: -45px;
+    top: -50px;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
-  
-  .wrapper .icon:hover span,
-  .wrapper .icon:hover .tooltip {
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+
+  .wrapper .facebook:hover {
+    background: rgba(24, 119, 242, 0.2);
+    border-color: #1877f2;
+    color: #1877f2;
+    box-shadow: 0 8px 24px rgba(24, 119, 242, 0.3);
   }
-  
-  .wrapper .facebook:hover,
-  .wrapper .facebook:hover .tooltip,
-  .wrapper .facebook:hover .tooltip::before {
-    background: #1877f2;
-    color: #fff;
+
+  .wrapper .twitter:hover {
+    background: rgba(242, 139, 29, 0.2);
+    border-color: #f28b1d;
+    color: #f28b1d;
+    box-shadow: 0 8px 24px rgba(242, 139, 29, 0.3);
   }
-  
-  .wrapper .twitter:hover,
-  .wrapper .twitter:hover .tooltip,
-  .wrapper .twitter:hover .tooltip::before {
-    background: #f28b1d;
-    color: #fff;
+
+  .wrapper .instagram:hover {
+    background: rgba(1, 168, 59, 0.2);
+    border-color: #01a83b;
+    color: #01a83b;
+    box-shadow: 0 8px 24px rgba(1, 168, 59, 0.3);
   }
-  
-  .wrapper .instagram:hover,
-  .wrapper .instagram:hover .tooltip,
-  .wrapper .instagram:hover .tooltip::before {
-    background: #01a83b;
-    color: #fff;
-  }
-  
-  .wrapper .Linkedin:hover,
-  .wrapper .Linkedin:hover .tooltip,
-  .wrapper .Linkedin:hover .tooltip::before {
-    background: #073663;
-    color: #fff;
+
+  .wrapper .Linkedin:hover {
+    background: rgba(7, 54, 99, 0.3);
+    border-color: #0a66c2;
+    color: #0a66c2;
+    box-shadow: 0 8px 24px rgba(10, 102, 194, 0.3);
   }
