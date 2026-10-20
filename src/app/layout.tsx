@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import Script from "next/script";
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <body>
         <MotionProvider>{children}</MotionProvider>
+        <Analytics />
         <Script
           src="https://beamanalytics.b-cdn.net/beam.min.js"
           data-token="f7c86922-447b-4bfa-916f-8e258d1f7a10"
