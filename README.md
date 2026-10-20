@@ -34,3 +34,5 @@ NEXT_PUBLIC_ENDPOINT_CONTACT=
 > `VITE_ENDPOINT_CONTACT` when the project used Vite. Rename them in any existing `.env`
 > files and in your hosting provider's settings. `NEXT_PUBLIC_*` values are inlined at
 > build time, so rebuild after changing them.
+>
+> 
