@@ -5,6 +5,7 @@ import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Stack } from "@/components/sections/Stack";
+import { WhatsAppButton } from "@/components/WhatsAppButton/WhatsAppButton";
 import { about, hero, navItems } from "@/content/profile";
 
 export default function HomePage() {
@@ -34,6 +35,7 @@ export default function HomePage() {
           Back to top
         </a>
       </footer>
+      <WhatsAppButton />
     </>
   );
 }

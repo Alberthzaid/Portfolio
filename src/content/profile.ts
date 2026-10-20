@@ -229,10 +229,12 @@ export const certifications = [
   { title: "UN Datathon 2024", institute: "UN Datathon", file: "/Dathaton.pdf" },
 ];
 
+export const whatsappUrl = "https://wa.link/680d7r";
+
 export const socials = [
   { label: "GitHub", icon: "bxl-github", href: "https://github.com/Alberthzaid" },
   { label: "GitLab", icon: "bxl-gitlab", href: "https://gitlab.com/ZaidPantoja" },
-  { label: "WhatsApp", icon: "bxl-whatsapp", href: "https://wa.link/680d7r" },
+  { label: "WhatsApp", icon: "bxl-whatsapp", href: whatsappUrl },
   { label: "LinkedIn", icon: "bxl-linkedin", href: "https://www.linkedin.com/in/alberth-pantoja-a42aa8222/" },
 ];
 
