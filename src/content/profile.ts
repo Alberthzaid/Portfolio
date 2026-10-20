@@ -179,8 +179,6 @@ export const projects: Project[] = [
       "Full-stack application that predicts property prices, with the ML model exposed through a FastAPI HTTP endpoint.",
     tags: ["React", "Node.js", "MongoDB", "FastAPI", "scikit-learn"],
   },
-  { name: "Guatavita Licitaciones", org: "Salto Angel", status: "In development" },
-  { name: "Cauca QA", org: "Salto Angel", status: "In development" },
 ];
 
 export interface Skill {
