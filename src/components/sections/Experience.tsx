@@ -13,7 +13,7 @@ export function Experience() {
             <p className="mb-3 text-xs tracking-[0.2em] text-muted-foreground uppercase">Experience</p>
             <h2
               id="experience-title"
-              className="text-4xl leading-[0.9] font-medium tracking-[-0.05em] text-primary sm:text-5xl md:text-6xl lg:text-7xl"
+              className="text-4xl leading-[0.9] font-medium tracking-[-0.05em] text-primary sm:text-5xl md:text-6xl lg:text-7xl md:[@media(max-height:820px)]:text-5xl"
             >
               Where I&apos;ve built
             </h2>

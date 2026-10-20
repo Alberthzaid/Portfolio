@@ -19,6 +19,7 @@ const PAD = "px-4 sm:px-6 md:px-10 xl:px-[max(2.5rem,calc((100vw-80rem)/2+2.5rem
  * track overflow (ResizeObserver, written straight to the DOM) so the scroll length equals the
  * horizontal travel. Reduced motion is pure CSS: the section collapses to auto height, the
  * sticky viewport becomes static, and the track becomes a native snap-scrolling row.
+ * Phones get the same native swipe row: the tallest card does not fit a phone viewport.
  */
 export function HorizontalScroll({ heading, label, children }: HorizontalScrollProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -54,34 +55,36 @@ export function HorizontalScroll({ heading, label, children }: HorizontalScrollP
   }, [distance]);
 
   return (
-    <div ref={sectionRef} className="relative motion-reduce:h-auto!">
-      <div className="sticky top-0 flex h-screen flex-col justify-center gap-8 overflow-hidden py-16 motion-reduce:static motion-reduce:h-auto motion-reduce:py-24 md:gap-12 md:motion-reduce:py-32">
+    <div ref={sectionRef} className="relative max-md:h-auto! motion-reduce:h-auto!">
+      {/* Safe centering falls back to top alignment when content is taller than the viewport,
+          and the top padding keeps the heading clear of the fixed nav. */}
+      <div className="sticky top-0 flex h-screen flex-col justify-center-safe gap-8 overflow-hidden pt-20 pb-8 max-md:static max-md:h-auto max-md:py-24 motion-reduce:static motion-reduce:h-auto motion-reduce:py-24 md:gap-10 md:motion-reduce:py-32 md:[@media(max-height:820px)]:gap-6 md:[@media(max-height:820px)]:pt-16 md:[@media(max-height:820px)]:pb-4">
         <div className="mx-auto flex w-full max-w-7xl items-end justify-between gap-6 px-4 sm:px-6 md:px-10">
           <div>{heading}</div>
-          <p className="shrink-0 text-xs tracking-[0.2em] text-muted-foreground tabular-nums motion-reduce:hidden">
+          <p className="shrink-0 text-xs tracking-[0.2em] text-muted-foreground tabular-nums max-md:hidden motion-reduce:hidden">
             <motion.span className="text-primary">{counter}</motion.span> / {String(total).padStart(2, "0")}
           </p>
         </div>
 
         <div
           ref={viewportRef}
-          className="motion-reduce:snap-x motion-reduce:snap-mandatory motion-reduce:overflow-x-auto"
+          className="max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto motion-reduce:snap-x motion-reduce:snap-mandatory motion-reduce:overflow-x-auto"
         >
           <motion.ol
             ref={trackRef}
             aria-label={label}
             style={{ x }}
-            className={`flex w-max items-stretch gap-4 md:gap-6 motion-reduce:transform-none! ${PAD}`}
+            className={`flex w-max items-stretch gap-4 max-md:transform-none! md:gap-6 motion-reduce:transform-none! ${PAD}`}
           >
             {items.map((item, index) => (
-              <li key={index} className="flex w-[85vw] shrink-0 snap-start scroll-mx-4 md:w-[42vw] xl:w-[32vw]">
+              <li key={index} className="flex w-[85vw] shrink-0 snap-start scroll-mx-4 md:w-[42vw] lg:w-[40vw] xl:w-[36vw]">
                 {item}
               </li>
             ))}
           </motion.ol>
         </div>
 
-        <div className="mx-auto w-full max-w-7xl px-4 motion-reduce:hidden sm:px-6 md:px-10">
+        <div className="mx-auto w-full max-w-7xl px-4 max-md:hidden motion-reduce:hidden sm:px-6 md:px-10">
           <div className="h-px w-full bg-border">
             <motion.div style={{ scaleX: scrollYProgress }} className="h-px origin-left bg-primary" />
           </div>
