@@ -1,34 +1,22 @@
-import './SocialMedia.css'
-import 'boxicons'
-
+import { socials } from "@/content/profile";
 
 export const SocialMedia = () => {
-    const openLink = (link : string)=>{
-        window.open(`${link}` , '_blank')
-    }
-    
-    return (
-        <>
-            <ul className="wrapper">
-                <li className="icon facebook" onClick={()=>openLink("https://github.com/Alberthzaid")}>
-                    <span className="tooltip">Github</span>
-                    <box-icon type='logo' name='github'></box-icon>
-                </li>
-                <li className="icon twitter" onClick={()=>openLink("https://gitlab.com/ZaidPantoja")}>
-                    <span className="tooltip">Gitlab</span>
-                    <box-icon type='logo' name='gitlab'></box-icon>
-                </li>
-                <li className="icon instagram" onClick={()=>openLink("https://wa.link/680d7r")}>
-                    <span className="tooltip">Whatsapp</span>
-                    <box-icon type='logo' name='whatsapp'></box-icon>
-                </li>
-                <li className="icon Linkedin" onClick={()=>openLink("https://www.linkedin.com/in/alberth-zaid-a42aa8222")}>
-                    <span className="tooltip">Linkedin</span>
-                    <box-icon type='logo' name='linkedin' ></box-icon>
-                </li>
-            </ul>
-
-
-        </>
-    )
-}
+  return (
+    <ul className="flex flex-wrap gap-3">
+      {socials.map(({ label, icon, href }) => (
+        <li key={label}>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-primary transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+          >
+            <i className={`bx ${icon} text-lg`} aria-hidden="true" />
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+};

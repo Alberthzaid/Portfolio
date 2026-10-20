@@ -1,98 +1,34 @@
-import "./Contact.css";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { saveContact } from "../../Utils/Controllers";
-import Swal from "sweetalert2";
+import { Reveal } from "@/components/motion/Reveal";
+import { SocialMedia } from "@/components/SocialMedia/SocialMedia";
+import { contactEmail } from "@/content/profile";
+import { ContactForm } from "./ContactForm";
+import { SectionHeading, sectionClass } from "./SectionHeading";
 
-interface FormData {
-  email: string;
-  name: string;
-  idea: string;
-}
-
-export const Contact = () => {
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>();
-
-  
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
-    try {
-      await saveContact(data);
-
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Your work has been saved",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      
-      console.log("Formulario enviado con éxito:", data);
-    } catch (error) {
-      console.error(error)
-    }
-    
-  };
-
+export function Contact() {
   return (
-    <div className="login-box">
-      <p>Contact me</p>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-
-        <div className="user-box">
-
-          <input
-            type="email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Invalid email format",
-              },
-            })}
+    <section id="contact" className={sectionClass}>
+      <div className="grid gap-12 lg:grid-cols-12">
+        <Reveal className="lg:col-span-5">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Let's talk"
+            description="Building something with AI, backend services, or a full-stack product? Send me your idea."
           />
+          <a
+            href={`mailto:${contactEmail}`}
+            className="block text-lg break-all text-primary underline-offset-4 hover:underline md:text-xl"
+          >
+            {contactEmail}
+          </a>
+          <div className="mt-8">
+            <SocialMedia />
+          </div>
+        </Reveal>
 
-          <label>Email</label>
-          {errors.email && <span className="error">{errors.email.message}</span>}
-
-        </div>
-
-        <div className="user-box">
-
-          <input
-            type="text"
-            {...register("name", { required: "Name is required" })}
-          />
-          <label>Your name</label>
-          {errors.name && <span className="error">{errors.name.message}</span>}
-
-        </div>
-
-        <div className="user-box">
-
-          <input
-            type="text"
-            {...register("idea", { required: "Message is required" })}
-
-          />
-
-          <label>How can I help you?</label>
-          {errors.idea && <span className="error">{errors.idea.message}</span>}
-
-        </div>
-
-        <button type="submit" className="boton-elegante">
-          Submit
-        </button>
-
-      </form>
-
-      <p className="span_msg">¡Send me your ideas!</p>
-      
-    </div>
+        <Reveal className="lg:col-span-7">
+          <ContactForm />
+        </Reveal>
+      </div>
+    </section>
   );
-};
+}

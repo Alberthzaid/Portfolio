@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Single dark theme: near-black surfaces with cream (#E1E0CC) text and accents. */
+:root {
+  color-scheme: dark;
+  --background: #0a0a09;
+  --foreground: #e1e0cc;
+  --card: #121211;
+  --card-foreground: #e1e0cc;
+  --popover: #121211;
+  --popover-foreground: #e1e0cc;
+  --primary: #e1e0cc;
+  --primary-foreground: #0a0a09;
+  --secondary: #1b1b19;
+  --secondary-foreground: #e1e0cc;
+  --muted: #1b1b19;
+  --muted-foreground: rgb(225 224 204 / 0.6);
+  --accent: #1b1b19;
+  --accent-foreground: #e1e0cc;
+  --destructive: #f87171;
+  --border: rgb(225 224 204 / 0.1);
+  --input: rgb(225 224 204 / 0.2);
+  --ring: rgb(225 224 204 / 0.5);
+  --radius: 0.625rem;
+}
+
+/* Film-grain texture used on top of the hero video. */
+@utility noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1743 1743' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-padding-top: 4rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
