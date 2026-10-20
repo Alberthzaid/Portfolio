@@ -4,6 +4,7 @@ import Script from "next/script";
 import "boxicons/css/boxicons.min.css";
 import "./globals.css";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { siteUrl } from "@/content/profile";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
@@ -12,9 +13,10 @@ const description =
   "Alberth Zaid Pantoja — Software Engineer focused on backend, full-stack, and AI applications. Technical lead at Refacciones.com and co-founder & CTO at Salto Angel.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfoliozaid.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: "Zaid Pantoja — AI & Software Engineer",
   description,
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Zaid Pantoja — AI & Software Engineer",
     description,

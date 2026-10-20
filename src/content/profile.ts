@@ -229,6 +229,9 @@ export const certifications = [
   { title: "UN Datathon 2024", institute: "UN Datathon", file: "/Dathaton.pdf" },
 ];
 
+// Canonical production origin; the apex domain 308-redirects here.
+export const siteUrl = "https://www.zaidpantoja.tech";
+
 export const whatsappUrl = "https://wa.link/680d7r";
 
 export const socials = [
