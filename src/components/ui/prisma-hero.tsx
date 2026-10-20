@@ -99,10 +99,10 @@ interface PrismaHeroProps {
   posterSrc?: string;
 }
 
-// Placeholder clip hotlinked from a third-party CDN; replace with a self-hosted asset when available.
-const DEFAULT_VIDEO =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4";
-const DEFAULT_POSTER = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=70";
+// Self-hosted clip re-cut so its last 1.5s crossfade into its first frames, making `loop` seamless.
+// The poster is the clip's first frame, so nothing jumps when playback starts.
+const DEFAULT_VIDEO = "/videos/hero-loop.mp4";
+const DEFAULT_POSTER = "/videos/hero-poster.jpg";
 
 export const PrismaHero = ({
   title,
