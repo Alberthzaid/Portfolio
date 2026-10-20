@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
+import { ScrollFocus } from "@/components/motion/ScrollFocus";
 import { skillGroups } from "@/content/profile";
 import { SectionHeading, sectionClass } from "./SectionHeading";
 
@@ -9,24 +10,29 @@ export function Stack() {
         <SectionHeading eyebrow="Stack" title="Core technologies" />
       </Reveal>
 
-      <Reveal className="grid gap-4 md:grid-cols-2 md:gap-6">
+      {/* Scroll-linked highlight per row; no entrance Reveal so scroll stays the only motion. */}
+      <div className="flex flex-col gap-16 md:gap-24">
         {skillGroups.map((group) => (
-          <div key={group.title} className="rounded-3xl border border-border bg-card p-6 md:p-8">
-            <h3 className="mb-6 text-xs tracking-[0.2em] text-muted-foreground uppercase">{group.title}</h3>
-            <ul className="flex flex-wrap gap-2">
+          <div key={group.title} className="flex flex-col gap-6 md:flex-row md:gap-10">
+            <h3 className="text-xs tracking-[0.2em] text-muted-foreground uppercase md:sticky md:top-24 md:w-1/3 md:shrink-0 md:self-start">
+              {group.title}
+            </h3>
+            <ul className="flex flex-1 flex-col" aria-label={group.title}>
               {group.skills.map((skill) => (
-                <li
-                  key={skill.name}
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-primary"
-                >
-                  {skill.icon && <i className={`bx ${skill.icon} text-lg`} aria-hidden="true" />}
-                  {skill.name}
-                </li>
+                <ScrollFocus key={skill.name} rule>
+                  <span className="flex items-center gap-4 py-4 text-2xl font-medium tracking-[-0.04em] text-primary md:py-5 md:text-4xl">
+                    {/* Fixed-width slot keeps names aligned whether or not a skill has an icon. */}
+                    <span className="flex w-7 shrink-0 justify-center md:w-10" aria-hidden="true">
+                      {skill.icon && <i className={`bx ${skill.icon} text-muted-foreground`} />}
+                    </span>
+                    {skill.name}
+                  </span>
+                </ScrollFocus>
               ))}
             </ul>
           </div>
         ))}
-      </Reveal>
+      </div>
     </section>
   );
 }
