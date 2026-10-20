@@ -5,6 +5,7 @@ import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Stack } from "@/components/sections/Stack";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton/WhatsAppButton";
 import { getContent, type Locale } from "@/content";
 
@@ -14,10 +15,12 @@ export function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <>
+      <JsonLd locale={locale} />
       {/* clip (not hidden) prevents horizontal page scroll without breaking position: sticky. */}
       <main className="overflow-x-clip">
         <PrismaHero
           title={hero.title}
+          heading={hero.heading}
           description={hero.description}
           navLabel={content.navLabel}
           navItems={content.navItems}

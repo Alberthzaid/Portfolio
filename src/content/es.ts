@@ -16,8 +16,26 @@ export const es: SiteContent = {
     hrefLang: "en",
     ariaLabel: "View this page in English",
   },
+  seo: {
+    title: "Alberth Zaid Pantoja — Desarrollador de IA en Bogotá",
+    description:
+      "Alberth Zaid Pantoja (Zaid Pantoja), desarrollador de IA en Bogotá, Colombia: agentes con LLM, servicios backend y productos full-stack. Líder técnico y CTO.",
+    keywords: [
+      "Alberth Zaid Pantoja",
+      "Zaid Pantoja",
+      "desarrollador de IA Bogotá",
+      "desarrollador de inteligencia artificial Colombia",
+      "ingeniero de IA Bogotá",
+      "desarrollador de agentes LLM",
+      "ingeniero de software Bogotá",
+      "desarrollador backend Bogotá",
+    ],
+    jobTitle: "Desarrollador de IA e Ingeniero de Software",
+    ogLocale: "es_CO",
+  },
   hero: {
     title: "Zaid",
+    heading: "Alberth Zaid Pantoja — Desarrollador de IA en Bogotá",
     description:
       "Desarrollador de IA e Ingeniero de Software en Bogotá, Colombia: agentes con LLM, backend y productos full-stack. Líder técnico en Refacciones.com y cofundador y CTO de Salto Angel.",
     primaryCta: { label: "Hablemos", href: "#contact" },

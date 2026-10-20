@@ -12,15 +12,22 @@ interface WordsPullUpProps {
   className?: string;
   showAsterisk?: boolean;
   style?: React.CSSProperties;
+  "aria-hidden"?: boolean;
 }
 
-export const WordsPullUp = ({ text, className = "", showAsterisk = false, style }: WordsPullUpProps) => {
+export const WordsPullUp = ({
+  text,
+  className = "",
+  showAsterisk = false,
+  style,
+  "aria-hidden": ariaHidden,
+}: WordsPullUpProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const words = text.split(" ");
 
   return (
-    <div ref={ref} className={`inline-flex flex-wrap ${className}`} style={style}>
+    <div ref={ref} className={`inline-flex flex-wrap ${className}`} style={style} aria-hidden={ariaHidden}>
       {words.map((word, i) => {
         const isLast = i === words.length - 1;
         return (
@@ -96,6 +103,8 @@ interface LanguageLink extends HeroLink {
 
 interface PrismaHeroProps {
   title: string;
+  /** Accessible full heading; when set, the animated title is hidden from assistive tech. */
+  heading?: string;
   description: string;
   navLabel: string;
   navItems: HeroLink[];
@@ -113,6 +122,7 @@ const DEFAULT_POSTER = "/videos/hero-poster.jpg";
 
 export const PrismaHero = ({
   title,
+  heading,
   description,
   navLabel,
   navItems,
@@ -185,7 +195,8 @@ export const PrismaHero = ({
           <div className="grid grid-cols-12 items-end gap-4">
             <motion.div style={{ y: titleY }} className="col-span-12 motion-reduce:transform-none! lg:col-span-8">
               <h1 className="text-[26vw] leading-[0.85] font-medium tracking-[-0.07em] text-primary sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw]">
-                <WordsPullUp text={title} showAsterisk />
+                {heading && <span className="sr-only">{heading}</span>}
+                <WordsPullUp text={title} showAsterisk aria-hidden={heading ? true : undefined} />
               </h1>
             </motion.div>
             <Reveal hero className="col-span-12 flex flex-col gap-5 pb-6 lg:col-span-4 lg:pb-10">

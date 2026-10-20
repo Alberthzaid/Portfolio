@@ -1,14 +1,17 @@
 import type { MetadataRoute } from "next";
-import { siteUrl } from "@/content/shared";
+import { absoluteUrl, languageAlternates, localePaths } from "@/lib/seo";
 
-// One-page site: sections are anchors on "/", which search engines do not index separately.
+const languages = Object.fromEntries(
+  Object.entries(languageAlternates).map(([lang, path]) => [lang, absoluteUrl(path)]),
+);
+
+// One page per locale: sections are anchors, which search engines do not index separately.
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: `${siteUrl}/`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-  ];
+  return Object.values(localePaths).map((path) => ({
+    url: absoluteUrl(path),
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: path === localePaths.en ? 1 : 0.9,
+    alternates: { languages },
+  }));
 }

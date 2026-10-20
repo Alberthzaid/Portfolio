@@ -70,8 +70,18 @@ export interface SiteContent {
   navLabel: string;
   navItems: Link[];
   languageSwitch: LanguageSwitch;
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+    jobTitle: string;
+    /** Open Graph locale, e.g. en_US. */
+    ogLocale: string;
+  };
   hero: {
     title: string;
+    /** Full heading for crawlers and screen readers; the giant title is decorative. */
+    heading: string;
     description: string;
     primaryCta: Link;
     secondaryCta: Link;
