@@ -122,14 +122,18 @@ export const PrismaHero = ({
   const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
   return (
-    <section ref={sectionRef} id="top" className="h-svh w-full p-2 md:p-3">
-      <nav aria-label="Primary" className="fixed top-0 left-1/2 z-50 -translate-x-1/2">
-        <div className="flex items-center gap-3 rounded-b-2xl bg-black px-4 py-2 sm:gap-6 md:gap-12 md:rounded-b-3xl md:px-8 lg:gap-14">
+    <section ref={sectionRef} id="top" className="h-svh w-full p-2 pb-20 md:p-3">
+      {/* Phone: floating bottom dock that scrolls sideways. md+: top-centered tab. */}
+      <nav
+        aria-label="Primary"
+        className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 overflow-hidden rounded-full border border-border bg-black/85 backdrop-blur md:inset-x-auto md:top-0 md:bottom-auto md:left-1/2 md:-translate-x-1/2 md:overflow-visible md:rounded-none md:rounded-b-3xl md:border-0 md:bg-black md:backdrop-blur-none"
+      >
+        <div className="flex snap-x items-center overflow-x-auto px-2 [scrollbar-width:none] mask-[linear-gradient(to_right,transparent,black_1rem,black_calc(100%-1rem),transparent)] [&::-webkit-scrollbar]:hidden md:gap-12 md:overflow-visible md:px-8 md:py-2 md:mask-none lg:gap-14">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-[10px] text-primary/80 transition-colors hover:text-primary sm:text-xs md:text-sm"
+              className="shrink-0 snap-start px-4 py-3 text-sm whitespace-nowrap text-primary/80 transition-colors hover:text-primary md:p-0"
             >
               {item.label}
             </a>

@@ -27,7 +27,7 @@ export default function HomePage() {
         <Certifications />
         <Contact />
       </main>
-      <footer className="mx-auto flex w-full max-w-7xl flex-wrap justify-between gap-4 border-t border-border px-4 py-8 text-sm text-muted-foreground sm:px-6 md:px-10">
+      <footer className="mx-auto flex w-full max-w-7xl flex-wrap justify-between gap-4 border-t border-border px-4 pt-8 pb-40 text-sm text-muted-foreground sm:px-6 md:px-10 md:pb-28">
         <span>
           © {new Date().getFullYear()} {about.name}
         </span>
