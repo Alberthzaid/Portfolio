@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { StickyStack } from "@/components/motion/StickyStack";
-import { projects } from "@/content/profile";
+import type { SiteContent } from "@/content";
 import { SectionHeading, sectionClass } from "./SectionHeading";
 
-export function Building() {
+export function Building({ building }: { building: SiteContent["building"] }) {
+  const { projects } = building;
   const featured = projects.filter((project) => !project.status);
   const upcoming = projects.filter((project) => project.status);
 
@@ -12,14 +13,14 @@ export function Building() {
     <section id="building" className={sectionClass}>
       <Reveal>
         <SectionHeading
-          eyebrow="Building now"
-          title="Current work"
-          description="Products I am building at Salto Angel and Refacciones.com, plus recent client work."
+          eyebrow={building.eyebrow}
+          title={building.title}
+          description={building.description}
         />
       </Reveal>
 
       {/* Scroll-driven stack; no entrance Reveal so the sticky/scale transforms stay the only motion. */}
-      <StickyStack label="Featured projects">
+      <StickyStack label={building.listLabel}>
         {featured.map((project) => (
           <article
             key={project.name}
@@ -31,7 +32,7 @@ export function Building() {
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{project.description}</p>
             )}
             {project.tags && (
-              <ul className="mt-6 flex flex-wrap gap-2" aria-label="Technologies">
+              <ul className="mt-6 flex flex-wrap gap-2" aria-label={building.technologiesLabel}>
                 {project.tags.map((tag) => (
                   <li key={tag} className="rounded-full border border-border px-3 py-1 text-xs text-primary/80">
                     {tag}

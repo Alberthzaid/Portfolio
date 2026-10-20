@@ -92,6 +92,7 @@ interface HeroLink {
 interface PrismaHeroProps {
   title: string;
   description: string;
+  navLabel: string;
   navItems: HeroLink[];
   primaryCta: HeroLink;
   secondaryCta?: HeroLink;
@@ -107,6 +108,7 @@ const DEFAULT_POSTER = "/videos/hero-poster.jpg";
 export const PrismaHero = ({
   title,
   description,
+  navLabel,
   navItems,
   primaryCta,
   secondaryCta,
@@ -125,7 +127,7 @@ export const PrismaHero = ({
     <section ref={sectionRef} id="top" className="h-svh w-full p-2 pb-20 md:p-3">
       {/* Phone: floating bottom dock that scrolls sideways. md+: top-centered tab. */}
       <nav
-        aria-label="Primary"
+        aria-label={navLabel}
         className="fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-50 overflow-hidden rounded-full border border-border bg-black/85 backdrop-blur md:inset-x-auto md:top-0 md:bottom-auto md:left-1/2 md:-translate-x-1/2 md:overflow-visible md:rounded-none md:rounded-b-3xl md:border-0 md:bg-black md:backdrop-blur-none"
       >
         <div className="flex snap-x items-center overflow-x-auto px-2 [scrollbar-width:none] mask-[linear-gradient(to_right,transparent,black_1rem,black_calc(100%-1rem),transparent)] [&::-webkit-scrollbar]:hidden md:gap-12 md:overflow-visible md:px-8 md:py-2 md:mask-none lg:gap-14">

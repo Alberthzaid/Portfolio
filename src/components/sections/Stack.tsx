@@ -1,18 +1,18 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollFocus } from "@/components/motion/ScrollFocus";
-import { skillGroups } from "@/content/profile";
+import type { SiteContent } from "@/content";
 import { SectionHeading, sectionClass } from "./SectionHeading";
 
-export function Stack() {
+export function Stack({ stack }: { stack: SiteContent["stack"] }) {
   return (
     <section id="stack" className={sectionClass}>
       <Reveal>
-        <SectionHeading eyebrow="Stack" title="Core technologies" />
+        <SectionHeading eyebrow={stack.eyebrow} title={stack.title} />
       </Reveal>
 
       {/* Scroll-linked highlight per row; no entrance Reveal so scroll stays the only motion. */}
       <div className="flex flex-col gap-16 md:gap-24">
-        {skillGroups.map((group) => (
+        {stack.groups.map((group) => (
           <div key={group.title} className="flex flex-col gap-6 md:flex-row md:gap-10">
             <h3 className="text-xs tracking-[0.2em] text-muted-foreground uppercase md:sticky md:top-24 md:w-1/3 md:shrink-0 md:self-start">
               {group.title}

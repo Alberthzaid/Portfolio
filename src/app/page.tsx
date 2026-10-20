@@ -6,9 +6,12 @@ import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Stack } from "@/components/sections/Stack";
 import { WhatsAppButton } from "@/components/WhatsAppButton/WhatsAppButton";
-import { about, hero, navItems } from "@/content/profile";
+import { getContent } from "@/content";
 
 export default function HomePage() {
+  const content = getContent("en");
+  const { hero } = content;
+
   return (
     <>
       {/* clip (not hidden) prevents horizontal page scroll without breaking position: sticky. */}
@@ -16,26 +19,27 @@ export default function HomePage() {
         <PrismaHero
           title={hero.title}
           description={hero.description}
-          navItems={navItems}
+          navLabel={content.navLabel}
+          navItems={content.navItems}
           primaryCta={hero.primaryCta}
           secondaryCta={hero.secondaryCta}
         />
-        <About />
-        <Experience />
-        <Building />
-        <Stack />
-        <Certifications />
-        <Contact />
+        <About about={content.about} />
+        <Experience experience={content.experience} />
+        <Building building={content.building} />
+        <Stack stack={content.stack} />
+        <Certifications certifications={content.certifications} />
+        <Contact contact={content.contact} />
       </main>
       <footer className="mx-auto flex w-full max-w-7xl flex-wrap justify-between gap-4 border-t border-border px-4 pt-8 pb-40 text-sm text-muted-foreground sm:px-6 md:px-10 md:pb-28">
         <span>
-          © {new Date().getFullYear()} {about.name}
+          © {new Date().getFullYear()} {content.about.name}
         </span>
         <a href="#top" className="hover:text-primary">
-          Back to top
+          {content.footer.backToTop}
         </a>
       </footer>
-      <WhatsAppButton />
+      <WhatsAppButton label={content.whatsappLabel} />
     </>
   );
 }

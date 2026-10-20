@@ -5,7 +5,7 @@ import Script from "next/script";
 import "boxicons/css/boxicons.min.css";
 import "./globals.css";
 import { MotionProvider } from "@/components/motion/MotionProvider";
-import { siteUrl } from "@/content/profile";
+import { siteUrl } from "@/content/shared";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap" });

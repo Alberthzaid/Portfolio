@@ -1,18 +1,19 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { SocialMedia } from "@/components/SocialMedia/SocialMedia";
-import { contactEmail } from "@/content/profile";
+import type { SiteContent } from "@/content";
+import { contactEmail } from "@/content/shared";
 import { ContactForm } from "./ContactForm";
 import { SectionHeading, sectionClass } from "./SectionHeading";
 
-export function Contact() {
+export function Contact({ contact }: { contact: SiteContent["contact"] }) {
   return (
     <section id="contact" className={sectionClass}>
       <div className="grid gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
           <SectionHeading
-            eyebrow="Contact"
-            title="Let's talk"
-            description="Building something with AI, backend services, or a full-stack product? Send me your idea."
+            eyebrow={contact.eyebrow}
+            title={contact.title}
+            description={contact.description}
           />
           <a
             href={`mailto:${contactEmail}`}
@@ -26,7 +27,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal className="lg:col-span-7">
-          <ContactForm />
+          <ContactForm copy={contact.form} />
         </Reveal>
       </div>
     </section>

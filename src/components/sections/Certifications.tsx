@@ -1,19 +1,19 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { ScrollFocus } from "@/components/motion/ScrollFocus";
-import { certifications } from "@/content/profile";
+import type { SiteContent } from "@/content";
 import { SectionHeading, sectionClass } from "./SectionHeading";
 
-export function Certifications() {
+export function Certifications({ certifications }: { certifications: SiteContent["certifications"] }) {
   return (
     <section id="certifications" className={sectionClass}>
       <Reveal>
-        <SectionHeading eyebrow="Certifications" title="Learning" />
+        <SectionHeading eyebrow={certifications.eyebrow} title={certifications.title} />
       </Reveal>
 
       {/* Scroll-linked highlight per row; no entrance Reveal so scroll stays the only motion. */}
-      <ol className="flex flex-col border-b border-border" aria-label="Certifications">
-        {certifications.map((certification, index) => (
+      <ol className="flex flex-col border-b border-border" aria-label={certifications.listLabel}>
+        {certifications.items.map((certification, index) => (
           <ScrollFocus key={certification.file} rule>
             <a
               href={certification.file}
@@ -34,7 +34,7 @@ export function Certifications() {
               </span>
               <ArrowUpRight
                 className="h-5 w-5 shrink-0 self-center text-primary/60 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary"
-                aria-label="View certificate"
+                aria-label={certifications.viewLabel}
               />
             </a>
           </ScrollFocus>

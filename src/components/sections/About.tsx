@@ -1,13 +1,13 @@
 import { Reveal } from "@/components/motion/Reveal";
-import { about } from "@/content/profile";
+import type { SiteContent } from "@/content";
 import { SectionHeading, sectionClass } from "./SectionHeading";
 
-export function About() {
+export function About({ about }: { about: SiteContent["about"] }) {
   return (
     <section id="about" className={sectionClass}>
       <div className="grid gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-8">
-          <SectionHeading eyebrow="About" title={about.name} />
+          <SectionHeading eyebrow={about.eyebrow} title={about.name} />
           <p className="text-2xl leading-tight tracking-[-0.02em] text-primary md:text-3xl lg:text-4xl">
             {about.summary}
           </p>

@@ -1,18 +1,18 @@
 "use client";
 
 import { motion } from "motion/react";
-import { whatsappUrl } from "@/content/profile";
+import { whatsappUrl } from "@/content/shared";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 // Floating contact shortcut. Sticky controls get press feedback only, no entrance.
-export function WhatsAppButton() {
+export function WhatsAppButton({ label }: { label: string }) {
   return (
     <motion.a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
+      aria-label={label}
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
       transition={{ duration: 0.25, ease: EASE }}

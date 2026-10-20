@@ -2,6 +2,7 @@
 
 import { useForm, type SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
+import type { ContactFormCopy } from "@/content";
 import { saveContact, type ContactPayload } from "@/lib/contact";
 
 const fieldClass =
@@ -12,7 +13,7 @@ const errorClass = "mt-2 block text-sm text-destructive";
 
 const toastTheme = { background: "#121211", color: "#e1e0cc" };
 
-export function ContactForm() {
+export function ContactForm({ copy }: { copy: ContactFormCopy }) {
   const {
     register,
     handleSubmit,
@@ -28,7 +29,7 @@ export function ContactForm() {
         ...toastTheme,
         position: "top-end",
         icon: "success",
-        title: "Thanks! Your message was sent.",
+        title: copy.success,
         showConfirmButton: false,
         timer: 1800,
       });
@@ -38,7 +39,7 @@ export function ContactForm() {
         ...toastTheme,
         position: "top-end",
         icon: "error",
-        title: "Your message could not be sent. Please try again or reach out by email.",
+        title: copy.error,
         showConfirmButton: false,
         timer: 3000,
       });
@@ -53,20 +54,20 @@ export function ContactForm() {
     >
       <div>
         <label htmlFor="contact-email" className={labelClass}>
-          Email
+          {copy.emailLabel}
         </label>
         <input
           id="contact-email"
           type="email"
           autoComplete="email"
-          placeholder="you@company.com"
+          placeholder={copy.emailPlaceholder}
           aria-invalid={errors.email ? "true" : "false"}
           className={fieldClass}
           {...register("email", {
-            required: "Email is required",
+            required: copy.emailRequired,
             pattern: {
               value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              message: "Invalid email format",
+              message: copy.emailInvalid,
             },
           })}
         />
@@ -79,16 +80,16 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="contact-name" className={labelClass}>
-          Your name
+          {copy.nameLabel}
         </label>
         <input
           id="contact-name"
           type="text"
           autoComplete="name"
-          placeholder="Jane Doe"
+          placeholder={copy.namePlaceholder}
           aria-invalid={errors.name ? "true" : "false"}
           className={fieldClass}
-          {...register("name", { required: "Name is required" })}
+          {...register("name", { required: copy.nameRequired })}
         />
         {errors.name && (
           <span role="alert" className={errorClass}>
@@ -99,15 +100,15 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="contact-idea" className={labelClass}>
-          How can I help you?
+          {copy.ideaLabel}
         </label>
         <textarea
           id="contact-idea"
           rows={5}
-          placeholder="Tell me about your project or idea"
+          placeholder={copy.ideaPlaceholder}
           aria-invalid={errors.idea ? "true" : "false"}
           className={`${fieldClass} resize-y`}
-          {...register("idea", { required: "Message is required" })}
+          {...register("idea", { required: copy.ideaRequired })}
         />
         {errors.idea && (
           <span role="alert" className={errorClass}>
@@ -121,7 +122,7 @@ export function ContactForm() {
         disabled={isSubmitting}
         className="self-start rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 md:text-base"
       >
-        {isSubmitting ? "Sending…" : "Send message"}
+        {isSubmitting ? copy.submitting : copy.submit}
       </button>
     </form>
   );

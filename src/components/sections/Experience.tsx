@@ -1,26 +1,26 @@
 import { HorizontalScroll } from "@/components/motion/HorizontalScroll";
-import { earlierExperience, experience } from "@/content/profile";
+import type { SiteContent } from "@/content";
 
 const cardClass = "flex w-full flex-col rounded-3xl border border-border bg-card p-6 md:p-8";
 
-export function Experience() {
+export function Experience({ experience }: { experience: SiteContent["experience"] }) {
   return (
     <section id="experience" aria-labelledby="experience-title">
       <HorizontalScroll
-        label="Roles, newest first"
+        label={experience.listLabel}
         heading={
           <>
-            <p className="mb-3 text-xs tracking-[0.2em] text-muted-foreground uppercase">Experience</p>
+            <p className="mb-3 text-xs tracking-[0.2em] text-muted-foreground uppercase">{experience.eyebrow}</p>
             <h2
               id="experience-title"
               className="text-4xl leading-[0.9] font-medium tracking-[-0.05em] text-primary sm:text-5xl md:text-6xl lg:text-7xl md:[@media(max-height:820px)]:text-5xl"
             >
-              Where I&apos;ve built
+              {experience.title}
             </h2>
           </>
         }
       >
-        {experience.map((job) => (
+        {experience.items.map((job) => (
           <article key={job.company} className={cardClass}>
             <h3 className="text-2xl font-medium tracking-[-0.03em] text-primary md:text-3xl">{job.company}</h3>
             <p className="mt-2 text-sm text-primary/80 md:text-base">{job.role}</p>
@@ -36,7 +36,7 @@ export function Experience() {
               ))}
             </ul>
             {job.tags && (
-              <ul className="mt-auto flex flex-wrap gap-2 pt-6" aria-label="Technologies">
+              <ul className="mt-auto flex flex-wrap gap-2 pt-6" aria-label={experience.technologiesLabel}>
                 {job.tags.map((tag) => (
                   <li key={tag} className="rounded-full border border-border px-3 py-1 text-xs text-primary/80">
                     {tag}
@@ -48,9 +48,9 @@ export function Experience() {
         ))}
 
         <article className={cardClass}>
-          <h3 className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Earlier</h3>
+          <h3 className="text-xs tracking-[0.2em] text-muted-foreground uppercase">{experience.earlierTitle}</h3>
           <ul className="mt-4 divide-y divide-border">
-            {earlierExperience.map((job) => (
+            {experience.earlier.map((job) => (
               <li key={`${job.company}-${job.period}`} className="flex flex-col gap-0.5 py-3 text-sm">
                 <span className="flex flex-wrap justify-between gap-x-3">
                   <span className="text-primary">{job.company}</span>

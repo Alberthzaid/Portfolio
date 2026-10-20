@@ -1,4 +1,4 @@
-import { socials } from "@/content/profile";
+import { socials } from "@/content/shared";
 
 export const SocialMedia = () => {
   return (
