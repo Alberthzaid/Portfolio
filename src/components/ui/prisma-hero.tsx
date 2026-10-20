@@ -89,11 +89,17 @@ interface HeroLink {
   href: string;
 }
 
+interface LanguageLink extends HeroLink {
+  hrefLang: string;
+  ariaLabel: string;
+}
+
 interface PrismaHeroProps {
   title: string;
   description: string;
   navLabel: string;
   navItems: HeroLink[];
+  languageSwitch?: LanguageLink;
   primaryCta: HeroLink;
   secondaryCta?: HeroLink;
   videoSrc?: string;
@@ -110,6 +116,7 @@ export const PrismaHero = ({
   description,
   navLabel,
   navItems,
+  languageSwitch,
   primaryCta,
   secondaryCta,
   videoSrc = DEFAULT_VIDEO,
@@ -140,6 +147,17 @@ export const PrismaHero = ({
               {item.label}
             </a>
           ))}
+          {languageSwitch && (
+            <a
+              href={languageSwitch.href}
+              hrefLang={languageSwitch.hrefLang}
+              lang={languageSwitch.hrefLang}
+              aria-label={languageSwitch.ariaLabel}
+              className="shrink-0 snap-start px-4 py-3 text-sm whitespace-nowrap text-primary/80 transition-colors hover:text-primary md:p-0"
+            >
+              {languageSwitch.label}
+            </a>
+          )}
         </div>
       </nav>
 

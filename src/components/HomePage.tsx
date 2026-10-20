@@ -6,10 +6,10 @@ import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Stack } from "@/components/sections/Stack";
 import { WhatsAppButton } from "@/components/WhatsAppButton/WhatsAppButton";
-import { getContent } from "@/content";
+import { getContent, type Locale } from "@/content";
 
-export default function HomePage() {
-  const content = getContent("en");
+export function HomePage({ locale }: { locale: Locale }) {
+  const content = getContent(locale);
   const { hero } = content;
 
   return (
@@ -21,6 +21,7 @@ export default function HomePage() {
           description={hero.description}
           navLabel={content.navLabel}
           navItems={content.navItems}
+          languageSwitch={content.languageSwitch}
           primaryCta={hero.primaryCta}
           secondaryCta={hero.secondaryCta}
         />

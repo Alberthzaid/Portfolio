@@ -1,9 +1,10 @@
 import { en } from "./en";
+import { es } from "./es";
 import type { SiteContent } from "./types";
 
-export type Locale = "en";
+export type Locale = "en" | "es";
 
-const content: Record<Locale, SiteContent> = { en };
+const content: Record<Locale, SiteContent> = { en, es };
 
 export function getContent(locale: Locale): SiteContent {
   return content[locale];
