@@ -10,12 +10,7 @@ export const en: SiteContent = {
     { label: "Stack", href: "#stack" },
     { label: "Contact", href: "#contact" },
   ],
-  languageSwitch: {
-    label: "ES",
-    href: "/es",
-    hrefLang: "es-CO",
-    ariaLabel: "Ver esta página en español",
-  },
+  languageToggleLabel: "Language",
   seo: {
     title: "Alberth Zaid Pantoja — AI Developer in Bogotá",
     description:

@@ -60,16 +60,11 @@ export interface ContactFormCopy {
   error: string;
 }
 
-export interface LanguageSwitch extends Link {
-  /** BCP 47 tag of the target page. */
-  hrefLang: string;
-  ariaLabel: string;
-}
-
 export interface SiteContent {
   navLabel: string;
   navItems: Link[];
-  languageSwitch: LanguageSwitch;
+  /** Accessible name of the language toggle group. */
+  languageToggleLabel: string;
   seo: {
     title: string;
     description: string;

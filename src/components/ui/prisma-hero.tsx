@@ -2,7 +2,7 @@
 
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Download } from "lucide-react";
-import { useRef } from "react";
+import { type ReactNode, useRef } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 
 const PULL_UP_EASE = [0.16, 1, 0.3, 1] as const;
@@ -96,11 +96,6 @@ interface HeroLink {
   href: string;
 }
 
-interface LanguageLink extends HeroLink {
-  hrefLang: string;
-  ariaLabel: string;
-}
-
 interface PrismaHeroProps {
   title: string;
   /** Accessible full heading; when set, the animated title is hidden from assistive tech. */
@@ -108,7 +103,8 @@ interface PrismaHeroProps {
   description: string;
   navLabel: string;
   navItems: HeroLink[];
-  languageSwitch?: LanguageLink;
+  /** Rendered after the nav links, e.g. the language toggle. */
+  navEnd?: ReactNode;
   primaryCta: HeroLink;
   secondaryCta?: HeroLink;
   videoSrc?: string;
@@ -126,7 +122,7 @@ export const PrismaHero = ({
   description,
   navLabel,
   navItems,
-  languageSwitch,
+  navEnd,
   primaryCta,
   secondaryCta,
   videoSrc = DEFAULT_VIDEO,
@@ -157,17 +153,7 @@ export const PrismaHero = ({
               {item.label}
             </a>
           ))}
-          {languageSwitch && (
-            <a
-              href={languageSwitch.href}
-              hrefLang={languageSwitch.hrefLang}
-              lang={languageSwitch.hrefLang}
-              aria-label={languageSwitch.ariaLabel}
-              className="shrink-0 snap-start px-4 py-3 text-sm whitespace-nowrap text-primary/80 transition-colors hover:text-primary md:p-0"
-            >
-              {languageSwitch.label}
-            </a>
-          )}
+          {navEnd && <div className="shrink-0 snap-start px-2 py-2 md:p-0">{navEnd}</div>}
         </div>
       </nav>
 

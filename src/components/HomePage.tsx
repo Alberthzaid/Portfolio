@@ -5,6 +5,7 @@ import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Stack } from "@/components/sections/Stack";
+import { LanguageToggle } from "@/components/LanguageToggle";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton/WhatsAppButton";
 import { getContent, type Locale } from "@/content";
@@ -24,7 +25,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           description={hero.description}
           navLabel={content.navLabel}
           navItems={content.navItems}
-          languageSwitch={content.languageSwitch}
+          navEnd={<LanguageToggle locale={locale} label={content.languageToggleLabel} />}
           primaryCta={hero.primaryCta}
           secondaryCta={hero.secondaryCta}
         />

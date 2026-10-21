@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { getContent, type Locale } from "@/content";
+import { htmlLang, localePaths } from "@/content/locales";
 import { contactEmail, fullName, siteUrl, socials } from "@/content/shared";
 
+export { localePaths };
+
 const SITE_NAME = "Zaid Pantoja";
-
-export const localePaths: Record<Locale, string> = { en: "/", es: "/es" };
-
-const htmlLang: Record<Locale, string> = { en: "en", es: "es-CO" };
 
 // hreflang map shared by page metadata and the sitemap. English is the fallback for other languages.
 export const languageAlternates = {

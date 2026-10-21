@@ -10,12 +10,7 @@ export const es: SiteContent = {
     { label: "Stack", href: "#stack" },
     { label: "Contacto", href: "#contact" },
   ],
-  languageSwitch: {
-    label: "EN",
-    href: "/",
-    hrefLang: "en",
-    ariaLabel: "View this page in English",
-  },
+  languageToggleLabel: "Idioma",
   seo: {
     title: "Alberth Zaid Pantoja — Desarrollador de IA en Bogotá",
     description:
